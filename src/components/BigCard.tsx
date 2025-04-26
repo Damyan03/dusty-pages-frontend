@@ -12,7 +12,7 @@ const BigCard: React.FC<BigCardProps> = ({ children, title, src }) => {
 			{title && <h1>{title}</h1>}
 			{src && (
 				<div className="rounded-2xl overflow-hidden">
-					<img className="w-full h-auto object-cover" src={src} />
+					<img className="object-cover" src={src} />
 				</div>
 			)}
 			{children}

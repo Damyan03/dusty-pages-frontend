@@ -1,35 +1,36 @@
 @import "tailwindcss";
 
-body, #root{
-    height: 100vh;
+body,
+#root {
+	height: 100vh;
 }
 
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.full{
-    width: 100%;
-    height: 100%;
+.full {
+	width: 100%;
+	height: 100%;
 }
 
 @theme {
-    /* Backgrounds */
-    --color-main: #1A1A1A;
-    --color-sub: #262626;
-    --color-dark: #111111;
-  
-    /* Text */
-    --color-txt-primary: #EDEDED;
-    --color-txt-secondary: #BFBFBF;
-  
-    /* Accents */
-    --color-gold: #D4AF37;
-    --color-olive: #4C5842;
-    --color-burgundy: #7D3C3C;
-    --color-ink-blue: #2C3E50;
-    --color-parchment: #D6C7A1;
-    --color-hover-glow: #9AC6C5;
+	/* Backgrounds */
+	--color-main: #1A1A1A;
+	--color-sub: #262626;
+	--color-dark: #111111;
+
+	/* Text */
+	--color-txt-primary: #EDEDED;
+	--color-txt-secondary: #BFBFBF;
+
+	/* Accents */
+	--color-gold: #D4AF37;
+	--color-olive: #4C5842;
+	--color-burgundy: #7D3C3C;
+	--color-ink-blue: #2C3E50;
+	--color-parchment: #D6C7A1;
+	--color-hover-glow: #9AC6C5;
 }

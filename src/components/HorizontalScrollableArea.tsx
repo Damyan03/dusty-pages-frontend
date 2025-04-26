@@ -7,8 +7,8 @@ interface HorizontalScrollableAreaProps {
 
 const HorizontalScrollableArea: React.FC<HorizontalScrollableAreaProps> = ({ children, title}) => {
 	return (
-		<div className='full p-5 pr-0'>
-			{title && <h3 className=''>{title}</h3>}
+		<div className='full py-5'>
+			{title && <h3 className='pl-5'>{title}</h3>}
 			<div className='w-full flex gap-2 overflow-x-auto'>
 				{children}
 			</div>
