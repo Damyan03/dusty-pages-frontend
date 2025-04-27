@@ -5,6 +5,10 @@ body,
 	height: 100vh;
 }
 
+#root {
+	color: var(--color-txt-primary)
+}
+
 .center {
 	display: flex;
 	justify-content: center;
