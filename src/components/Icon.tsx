@@ -1,9 +1,15 @@
 import React from 'react';
 
 import menu from '../assets/icons/menu.svg';
+import leftArrow from '../assets/icons/left-arrow.svg';
+import downArrow from '../assets/icons/down-arrow.svg';
+import refresh from '../assets/icons/refresh.svg';
 
 const iconMap: { [key: string]: string } = {
 	menu,
+	'left-arrow': leftArrow,
+	'down-arrow': downArrow,
+	refresh,
 };
 
 interface IconProps {

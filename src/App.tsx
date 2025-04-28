@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound.tsx';
 import Home from './pages/Home.tsx';
 import Article from './pages/Article.tsx';
 import Category from './pages/Category.tsx';
+import SideMenu from './components/Sidemenu.tsx';
 
 function App() {
 	const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -19,11 +20,12 @@ function App() {
 	return (<>
 		{/* Main App */}
 		<div className='min-h-screen w-full flex flex-col bg-main'>
+			{menuIsOpen && <SideMenu toggleMenu={toggleMenu}/>}
+			{/* TopBar Menu */}
 			<div className='h-20 w-full bg-sub p-3'>
-				{/* TopBar Menu */}
 				<div className='h-full w-13'>
 					<button onClick={toggleMenu} className='h-full w-full flex items-center justify-center'>
-						{menuIsOpen ? 'X' : <Icon src="menu" className='fill-gold'/>}
+						<Icon src="menu"/>
 					</button>
 				</div>
 			</div>
