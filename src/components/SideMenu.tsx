@@ -15,7 +15,7 @@ const SideMenu: React.FC<SideMenuProps> = ({toggleMenu}) => {
 			</div>
 			<div className='full flex flex-col mt-10'>
 				<UserProfile />
-				<div className='center flex-col gap-5 text-xl'>
+				<div className='center flex-col gap-5 text-xl' onClick={toggleMenu}>
 					<Link to="/">Home</Link>
 					<h3 className='text-sub'>Bookmarks</h3>
 					<Link to="/about">About</Link>

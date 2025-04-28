@@ -8,7 +8,8 @@ import NotFound from './pages/NotFound.tsx';
 import Home from './pages/Home.tsx';
 import Article from './pages/Article.tsx';
 import Category from './pages/Category.tsx';
-import SideMenu from './components/Sidemenu.tsx';
+import SideMenu from './components/SideMenu.tsx';
+import AllArticles from './pages/AllArticles.tsx';
 
 function App() {
 	const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -39,6 +40,9 @@ function App() {
 					<Route path="/profile" element={<Profile/>}/>
 					<Route path="/article/:id" element={<Article/>}/>
 					<Route path="/category/:id" element={<Category/>}/>
+					<Route path="/category/:id/all-articles" element={<AllArticles/>}/>
+					<Route path="/about" element={<div>About</div>}/>
+					<Route path="/contact" element={<div>Contact</div>}/>
 					<Route path="*" element={<NotFound/>}/>
 				</Routes>
 			</div>			
