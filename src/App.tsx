@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import HeroSection from './components/HeroSection.tsx';
 import Icon from './components/Icon.tsx';
@@ -13,6 +13,7 @@ import AllArticles from './pages/AllArticles.tsx';
 
 function App() {
 	const [menuIsOpen, setMenuIsOpen] = useState(false);
+	const location = useLocation();
 
 	const toggleMenu = () => {
 		setMenuIsOpen(!menuIsOpen);
@@ -21,31 +22,34 @@ function App() {
 	return (<>
 		{/* Main App */}
 		<div className='min-h-screen w-full flex flex-col bg-main'>
-			{menuIsOpen && <SideMenu toggleMenu={toggleMenu}/>}
+			{menuIsOpen && <SideMenu toggleMenu={toggleMenu} />}
 			{/* TopBar Menu */}
 			<div className='h-20 w-full bg-sub p-3'>
 				<div className='h-full w-13'>
 					<button onClick={toggleMenu} className='h-full w-full flex items-center justify-center'>
-						<Icon src="menu"/>
+						<Icon src="menu" />
 					</button>
 				</div>
 			</div>
 			{/* Main content & Routes */}
-			<HeroSection
-				title='Discover the World of History'
-				src="https://img.freepik.com/premium-photo/this-is-epic-cinematic-digital-painting-medieval-knight-full-armor-standing-battlefield-with-his-sword-drawn-ready-charge_14117-279358.jpg"/>
+			{location.pathname !== "/profile" && (
+				<HeroSection
+					title='Discover the World of History'
+					src="https://img.freepik.com/premium-photo/this-is-epic-cinematic-digital-painting-medieval-knight-full-armor-standing-battlefield-with-his-sword-drawn-ready-charge_14117-279358.jpg"
+				/>
+			)}
 			<div className="flex-grow p-5 flex flex-col gap-5">
 				<Routes>
-					<Route path="/" element={<Home/>}/>
-					<Route path="/profile" element={<Profile/>}/>
-					<Route path="/article/:id" element={<Article/>}/>
-					<Route path="/category/:id" element={<Category/>}/>
-					<Route path="/category/:id/all-articles" element={<AllArticles/>}/>
-					<Route path="/about" element={<div>About</div>}/>
-					<Route path="/contact" element={<div>Contact</div>}/>
-					<Route path="*" element={<NotFound/>}/>
+					<Route path="/" element={<Home />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="/article/:id" element={<Article />} />
+					<Route path="/category/:id" element={<Category />} />
+					<Route path="/category/:id/all-articles" element={<AllArticles />} />
+					<Route path="/about" element={<div>About</div>} />
+					<Route path="/contact" element={<div>Contact</div>} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
-			</div>			
+			</div>
 			<div className='h-20 w-full bg-sub'>
 				{/* Footer */}
 			</div>

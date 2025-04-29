@@ -7,23 +7,20 @@ function Home() {
 	return (<>
 		{/* Featured articles section */}
 		<HorizontalScrollableArea title='Featured Articles'>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>
-				<Link to="/article/1">Article 1</Link>
-			</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 2</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 3</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 4</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 5</div>
+
+			{[...Array(5)].map((_, i) => (
+				<div className='size-40 center flex-none bg-sub rounded-2xl'>
+					<Link to={`/article/${i+1}`}>Article {i+1}</Link>
+				</div>
+			))}
 		</HorizontalScrollableArea>
 		{/* Category section */}
 		<HorizontalScrollableArea title='Categories'>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>
-				<Link to="/category/1">Article 1</Link>
-			</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 2</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 3</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 4</div>
-			<div className='w-40 h-40 flex-none bg-sub rounded-2xl'>Article 5</div>
+			{[...Array(5)].map((_, i) => (
+				<div className='size-40 center flex-none bg-sub rounded-2xl'>
+					<Link to={`/category/${i+1}`}>Category {i+1}</Link>
+				</div>
+			))}
 		</HorizontalScrollableArea>
 		<div className='w-full h-1/3'>
 			{/* This Day Section */}
