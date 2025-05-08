@@ -11,7 +11,7 @@ function Article() {
 			<small className="text-txt-secondary">Tags: Tag1, Tag2, Tag3</small>
 			<div className="center mt-5">
 				<Link to="/">
-					<Button text="Back to home"/>
+					<Button text="Back to home" />
 				</Link>
 			</div>
 		</div>

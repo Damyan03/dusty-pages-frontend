@@ -3,7 +3,7 @@ import React from 'react';
 interface SearchProps {
 }
 
-const Search: React.FC<SearchProps> = ({}) => {
+const Search: React.FC<SearchProps> = ({ }) => {
 
 	return (
 		<div className="h-9 border-2 rounded-xl border-sub flex">

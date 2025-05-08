@@ -10,7 +10,7 @@ function Home() {
 
 			{[...Array(5)].map((_, i) => (
 				<div className='size-40 center flex-none bg-sub rounded-2xl'>
-					<Link to={`/article/${i+1}`}>Article {i+1}</Link>
+					<Link to={`/article/${i + 1}`}>Article {i + 1}</Link>
 				</div>
 			))}
 		</HorizontalScrollableArea>
@@ -18,7 +18,7 @@ function Home() {
 		<HorizontalScrollableArea title='Categories'>
 			{[...Array(5)].map((_, i) => (
 				<div className='size-40 center flex-none bg-sub rounded-2xl'>
-					<Link to={`/category/${i+1}`}>Category {i+1}</Link>
+					<Link to={`/category/${i + 1}`}>Category {i + 1}</Link>
 				</div>
 			))}
 		</HorizontalScrollableArea>

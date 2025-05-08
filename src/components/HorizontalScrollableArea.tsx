@@ -5,7 +5,7 @@ interface HorizontalScrollableAreaProps {
 	title?: string;
 }
 
-const HorizontalScrollableArea: React.FC<HorizontalScrollableAreaProps> = ({ children, title}) => {
+const HorizontalScrollableArea: React.FC<HorizontalScrollableAreaProps> = ({ children, title }) => {
 	return (
 		<div className='flex flex-col gap-2 '>
 			{title && <h3 className='text-xl'>{title}</h3>}

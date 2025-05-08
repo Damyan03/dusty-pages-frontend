@@ -3,7 +3,7 @@ import React from 'react';
 interface ArticleListProps {
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({}) => {
+const ArticleList: React.FC<ArticleListProps> = ({ }) => {
 	return (
 		<table className="table-auto w-full border-2 border-sub rounded-xl">
 			{[...Array(10)].map((_, i) => (

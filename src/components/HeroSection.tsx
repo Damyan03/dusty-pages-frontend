@@ -5,7 +5,7 @@ interface HeroSectionProps {
 	src?: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({title, src}) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ title, src }) => {
 	return (
 		<div className='relative'>
 			<div className='full absolute bg-gradient-to-t from-dark to-75%'></div>
