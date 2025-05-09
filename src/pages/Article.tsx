@@ -1,22 +1,57 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import Button from "../components/Button";
+import config from "../config.ts";
 
 function Article() {
-	return (<>
+	const { id } = useParams();
+
+	interface ArticleType {
+		title: string;
+		date: string;
+		author: string;
+		body: string;
+		tags: string[];
+	}
+
+	const [article, setArticle] = useState<ArticleType | null>(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+
+	async function getArticle() {
+		try {
+			const res = await fetch(`${config.apiBaseUrl}/articles/${id}`);
+			if (!res.ok) throw new Error("Failed to fetch");
+			const data = await res.json();
+			setArticle(data);
+		} catch (err) {
+			setError(err instanceof Error ? err.message : "An unknown error occurred");
+		} finally {
+			setLoading(false);
+		}
+	}
+
+	useEffect(() => {
+		getArticle();
+	}, [id]);
+
+	if (loading) return <p>Loading...</p>;
+	if (error) return <p>Error: {error}</p>;
+	if (!article) return <p>No article found.</p>;
+
+	return (
 		<div className="full flex flex-col gap-2">
-			<small className="text-txt-secondary">DD-MM-YYYY - Author Name</small>
-			<h2 className="text-2xl">Article Title</h2>
-			{/* Article Content */}
-			<p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<small className="text-txt-secondary">Tags: Tag1, Tag2, Tag3</small>
+			<small className="text-txt-secondary">{article.date} - {article.author}</small>
+			<h2 className="text-2xl">{article.title}</h2>
+			<p>{article.body}</p>
+			<small className="text-txt-secondary">Tags: {article.tags.join(", ")}</small>
 			<div className="center mt-5">
 				<Link to="/">
 					<Button text="Back to home" />
 				</Link>
 			</div>
 		</div>
-	</>
-	)
+	);
 }
 
 export default Article;
