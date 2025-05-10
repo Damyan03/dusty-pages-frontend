@@ -1,24 +1,60 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import BigCard from "../components/BigCard";
 import HorizontalScrollableArea from "../components/HorizontalScrollableArea";
-
+import config from "../config.ts";
 
 function Home() {
+	interface CategoryType {
+		id: number;
+		name: string;
+	}
+
+	interface FeaturedArticleType {
+		id: number;
+		title: string;
+		titleLowerCase: string;
+	}
+
+	const [categories, setCategories] = useState<CategoryType[]>([]);
+	const [featuredArticles, setFeaturedArticles] = useState<FeaturedArticleType[]>([]);
+
+	async function getCategories() {
+		const res = await fetch(`${config.apiBaseUrl}/categories/get-categories`);
+		if (!res.ok) throw new Error("Failed to fetch categories");
+		const data = await res.json();
+		setCategories(data);
+	}
+
+	async function getFeaturedArticles() {
+		const res = await fetch(`${config.apiBaseUrl}/articles/get-featured-articles`);
+		if (!res.ok) throw new Error("Failed to fetch featured articles");
+		const data = await res.json();
+		data.map((article: FeaturedArticleType) => {
+			article.titleLowerCase = article.title?.toLowerCase().replace(/ /g, "-");
+		});
+		setFeaturedArticles(data);
+	}
+
+	useEffect(() => {
+		getFeaturedArticles();
+		getCategories();
+	}, []);
+
 	return (<>
 		{/* Featured articles section */}
 		<HorizontalScrollableArea title='Featured Articles'>
-
-			{[...Array(5)].map((_, i) => (
-				<div className='size-40 center flex-none bg-sub rounded-2xl'>
-					<Link to={`/article/${i + 1}`}>Article {i + 1}</Link>
+			{featuredArticles.map((article: FeaturedArticleType) => (
+				<div key={article.id} className='size-40 center flex-none bg-sub rounded-2xl'>
+					<Link to={`/article/${article.id}/${article.titleLowerCase}`}>{article.title}</Link>
 				</div>
 			))}
 		</HorizontalScrollableArea>
 		{/* Category section */}
 		<HorizontalScrollableArea title='Categories'>
-			{[...Array(5)].map((_, i) => (
-				<div className='size-40 center flex-none bg-sub rounded-2xl'>
-					<Link to={`/category/${i + 1}`}>Category {i + 1}</Link>
+			{categories.map((category: CategoryType) => (
+				<div key={category.id} className='size-40 center flex-none bg-sub rounded-2xl'>
+					<Link to={`/category/${category.name}`}>{category.name}</Link>
 				</div>
 			))}
 		</HorizontalScrollableArea>
