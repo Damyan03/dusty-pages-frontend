@@ -4,10 +4,11 @@ interface BigCardProps {
 	title?: string;
 	src?: string;
 	description?: string;
+	insideText?: string;
 	type?: 'wide' | 'small';
 }
 
-const BigCard: React.FC<BigCardProps> = ({ title, src, description, type }) => {
+const BigCard: React.FC<BigCardProps> = ({ title, src, description, insideText, type }) => {
 	const cardHeight = type === 'wide' ? 'h-44' : type === 'small' ? 'h-24' : 'h-48';
 
 	return (
@@ -16,8 +17,9 @@ const BigCard: React.FC<BigCardProps> = ({ title, src, description, type }) => {
 
 			<div className={`relative ${cardHeight}`}>
 				{!src ? (
-					<div className="full bg-sub rounded-2xl" />
-				) : (
+					<div className="full bg-sub rounded-2xl flex items-center justify-center text-txt-secondary text-center px-4">
+						{insideText || "No image available"}
+					</div>) : (
 					<img
 						className="full object-cover rounded-2xl"
 						src={src}

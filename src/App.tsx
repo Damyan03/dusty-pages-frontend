@@ -43,8 +43,8 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/article/:id/:title" element={<Article />} />
-					<Route path="/category/:name" element={<Category />} />
-					<Route path="/category/:name/all-articles" element={<AllArticles />} />
+					<Route path="/category/:categoryName" element={<Category />} />
+					<Route path="/category/:categoryName/all-articles" element={<AllArticles />} />
 					<Route path="/about" element={<div>About</div>} />
 					<Route path="/contact" element={<div>Contact</div>} />
 					<Route path="*" element={<NotFound />} />

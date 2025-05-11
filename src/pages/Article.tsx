@@ -16,7 +16,6 @@ function Article() {
 
 	const [article, setArticle] = useState<ArticleType | null>(null);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
 
 	async function getArticle() {
 		try {
@@ -25,7 +24,7 @@ function Article() {
 			const data = await res.json();
 			setArticle(data);
 		} catch (err) {
-			setError(err instanceof Error ? err.message : "An unknown error occurred");
+			console.error(err);
 		} finally {
 			setLoading(false);
 		}
@@ -36,7 +35,6 @@ function Article() {
 	}, [id]);
 
 	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error: {error}</p>;
 	if (!article) return <p>No article found.</p>;
 
 	return (
