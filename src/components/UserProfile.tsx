@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface UserProfileProps {
-	toggleMenu: () => void;
+	toggleMenu?: () => void;
 }
 
 const UserProfile: React.FC<UserProfileProps> = ({ toggleMenu }) => (

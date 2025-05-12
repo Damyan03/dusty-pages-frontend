@@ -5,11 +5,24 @@ interface BigCardProps {
 	src?: string;
 	description?: string;
 	insideText?: string;
-	type?: 'wide' | 'small';
+	type?: 'wide' | 'small' | 'tiny';
 }
 
 const BigCard: React.FC<BigCardProps> = ({ title, src, description, insideText, type }) => {
-	const cardHeight = type === 'wide' ? 'h-44' : type === 'small' ? 'h-24' : 'h-48';
+	let cardHeight;
+	switch (type) {
+		case 'wide':
+			cardHeight = 'h-44';
+			break;
+		case 'small':
+			cardHeight = 'h-24';
+			break;
+		case 'tiny':
+			cardHeight = 'h-12';
+			break;
+		default:
+			cardHeight = 'h-48';
+	}
 
 	return (
 		<div className="flex flex-col gap-2">
@@ -19,7 +32,8 @@ const BigCard: React.FC<BigCardProps> = ({ title, src, description, insideText, 
 				{!src ? (
 					<div className="full bg-sub rounded-2xl flex items-center justify-center text-txt-secondary text-center px-4">
 						{insideText || "No image available"}
-					</div>) : (
+					</div>
+				) : (
 					<img
 						className="full object-cover rounded-2xl"
 						src={src}
