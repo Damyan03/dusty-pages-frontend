@@ -10,6 +10,8 @@ import Article from './pages/Article.tsx';
 import Category from './pages/Category.tsx';
 import SideMenu from './components/SideMenu.tsx';
 import AllArticles from './pages/AllArticles.tsx';
+import Login from './pages/Login.tsx';
+import Register from './pages/Register.tsx';
 
 function App() {
 	const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -42,6 +44,8 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
 					<Route path="/article/:id/:title" element={<Article />} />
 					<Route path="/category/:categoryName" element={<Category />} />
 					<Route path="/category/:categoryName/all-articles" element={<AllArticles />} />
