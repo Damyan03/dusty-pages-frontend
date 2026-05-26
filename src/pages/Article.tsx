@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import Button from "../components/Button";
-import config from "../config.ts";
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Button from '../components/Button';
+import config from '../config.ts';
 
 function Article() {
 	const { id } = useParams();
@@ -20,7 +20,7 @@ function Article() {
 	async function getArticle() {
 		try {
 			const res = await fetch(`${config.apiBaseUrl}/articles/${id}`);
-			if (!res.ok) throw new Error("Failed to fetch");
+			if (!res.ok) throw new Error('Failed to fetch');
 			const data = await res.json();
 			setArticle(data);
 		} catch (err) {
@@ -39,10 +39,12 @@ function Article() {
 
 	return (
 		<div className="full flex flex-col gap-2">
-			<small className="text-txt-secondary">{article.date} - {article.author}</small>
+			<small className="text-txt-secondary">
+				{article.date} - {article.author}
+			</small>
 			<h2 className="text-2xl">{article.title}</h2>
 			<p>{article.body}</p>
-			<small className="text-txt-secondary">Tags: {article.tags.join(", ")}</small>
+			<small className="text-txt-secondary">Tags: {article.tags.join(', ')}</small>
 			<div className="center mt-5">
 				<Link to="/">
 					<Button text="Back to home" />

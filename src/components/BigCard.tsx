@@ -31,13 +31,10 @@ const BigCard: React.FC<BigCardProps> = ({ title, src, description, insideText, 
 			<div className={`relative ${cardHeight}`}>
 				{!src ? (
 					<div className="full bg-sub rounded-2xl flex items-center justify-center text-txt-secondary text-center px-4">
-						{insideText || "No image available"}
+						{insideText || 'No image available'}
 					</div>
 				) : (
-					<img
-						className="full object-cover rounded-2xl"
-						src={src}
-					/>
+					<img className="full object-cover rounded-2xl" src={src} />
 				)}
 			</div>
 

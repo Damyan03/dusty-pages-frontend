@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 body,
 #root {
@@ -6,7 +6,7 @@ body,
 }
 
 #root {
-	color: var(--color-txt-primary)
+	color: var(--color-txt-primary);
 }
 
 .center {
@@ -22,19 +22,19 @@ body,
 
 @theme {
 	/* Backgrounds */
-	--color-main: #1A1A1A;
+	--color-main: #1a1a1a;
 	--color-sub: #262626;
 	--color-dark: #111111;
 
 	/* Text */
-	--color-txt-primary: #EDEDED;
-	--color-txt-secondary: #BFBFBF;
+	--color-txt-primary: #ededed;
+	--color-txt-secondary: #bfbfbf;
 
 	/* Accents */
-	--color-gold: #D4AF37;
-	--color-olive: #4C5842;
-	--color-burgundy: #7D3C3C;
-	--color-ink-blue: #2C3E50;
-	--color-parchment: #D6C7A1;
-	--color-hover-glow: #9AC6C5;
+	--color-gold: #d4af37;
+	--color-olive: #4c5842;
+	--color-burgundy: #7d3c3c;
+	--color-ink-blue: #2c3e50;
+	--color-parchment: #d6c7a1;
+	--color-hover-glow: #9ac6c5;
 }
