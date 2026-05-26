@@ -27,7 +27,7 @@ function Home() {
 	}
 
 	async function getFeaturedArticles() {
-		const res = await fetch(`${config.apiBaseUrl}/articles/get-featured-articles`);
+		const res = await fetch(`${config.apiBaseUrl}/articles/get-featured`);
 		if (!res.ok) throw new Error('Failed to fetch featured articles');
 		const data = await res.json();
 		data.map((article: FeaturedArticleType) => {
